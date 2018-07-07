@@ -5,7 +5,7 @@ use Model\Model;
 
 class Task extends Model{
 
-    protected $table = "tasks";
+    protected $table = "tasks t";
     //..
     public function __construct()
     {

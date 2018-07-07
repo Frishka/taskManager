@@ -6,13 +6,15 @@ class MainController extends Controller\Controller{
     public function index(){
 
         $task = new Task();
-        $row = $task->select()->where('id',2,'>')->get();
+        $result = $task->select('*')
+            ->join("users u", "t.user_id=u.id", "LEFT")
+            ->get();
 
-        dump($row);
+        //dump($row);
 
-        view("main");
+        return view("main",['tasks'=>$result]);
     }
-    public function foo(){
-        echo 'second Page';
+    public function createTask(){
+       return view("createTask");
     }
 }
