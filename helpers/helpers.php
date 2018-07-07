@@ -9,3 +9,6 @@ function dump($p){
     var_dump($p);
     echo '</pre>';
 }
+function app(){
+     return require_once __DIR__.'/../config/app.php';
+}

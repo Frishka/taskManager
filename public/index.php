@@ -8,7 +8,7 @@ require __DIR__ . '/../web/web.php';
 
 $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
-Kernel::tie($uri);
+\Core\Kernel::tie($uri);
 
 
 

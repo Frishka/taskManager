@@ -1,4 +1,4 @@
-<?php
+<?php namespace Core;
 use \Web\Route;
 
 class Kernel {
@@ -30,13 +30,13 @@ class Kernel {
             }
 
     }
-    private function DBinit (){
+    private static function DBinit (){
 
 //      self::$_db = \Database\DB::getDB();
 
-        $config = require_once __DIR__."/config/db.php";
+        $config = require_once __DIR__ . "/../config/db.php";
 
-        self::$_db = new MysqliDb ($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
+        self::$_db = new \MysqliDb ($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 
     }
 }
