@@ -5,9 +5,13 @@ class Kernel {
 
     public static $controllerName;
     public static $controllerAction;
+    public static $_db;
 
     public static function tie($uri=''){
+
         self::findController($uri);
+        self::DBinit();
+
         $controllerName = self::$controllerName;
         $controllerAction = self::$controllerAction;
 
@@ -24,6 +28,15 @@ class Kernel {
                 self::$controllerName = $url->controller->name;
                 self::$controllerAction = $url->controller->action;
             }
+
+    }
+    private function DBinit (){
+
+//      self::$_db = \Database\DB::getDB();
+
+        $config = require_once __DIR__."/config/db.php";
+
+        self::$_db = new MysqliDb ($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 
     }
 }

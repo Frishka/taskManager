@@ -12,7 +12,3 @@ Kernel::tie($uri);
 
 
 
-
-
-
-

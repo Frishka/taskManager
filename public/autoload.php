@@ -1,7 +1,7 @@
 <?php
-
 namespace Autoloader;
 
+require __DIR__.'/../vendor/autoload.php';
     class Autoloader
     {
         public static function autoload($file)
@@ -24,7 +24,7 @@ namespace Autoloader;
         public static function recursive_autoload($file, $path, $flag)
         {
 
-            if (FALSE !== ($handle = opendir($path)) && $flag)
+            if (FALSE !== ($handle = @opendir($path)) && $flag)
             {
                 while (FAlSE !== ($dir = readdir($handle)) && $flag)
                 {

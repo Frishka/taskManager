@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "devDependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.2"
+  },
+  "name": "taskman",
+  "version": "1.0.0",
+  "description": "taskman",
+  "main": "index.js",
+  "author": "Andrii Polyvyanyy",
+  "license": "ISC"
+}
