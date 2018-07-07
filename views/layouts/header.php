@@ -13,5 +13,14 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body class="bg-light">
-
+<div class="container-fluid">
+    <row>
+        <div class="col-md-12">
+            <ul class="list-inline float-right">
+                <li class="list-inline-item"><a href="/register">Register</a></li>
+                <li class="list-inline-item"><a href="/login">Login</a></li>
+            </ul>
+        </div>
+    </row>
+</div>
 <div class="container">

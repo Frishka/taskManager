@@ -1,8 +1,10 @@
 <?php
 namespace Controllers;
+
+use Controllers\Controller\Controller;
 use \Models\Task;
 
-class MainController extends Controller\Controller{
+class MainController extends Controller{
     public function index(){
 
         $task = new Task();

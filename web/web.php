@@ -5,3 +5,5 @@ Route::get('/create','MainController','createTask');
 
 Route::get('/login','AuthController','login');
 Route::get('/register','AuthController','register');
+
+Route::get('/admin','AdminController','index');
