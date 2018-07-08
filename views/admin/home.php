@@ -1,0 +1,1 @@
+Welcome,Admin! <a href="/admin/logout">Выйти</a>

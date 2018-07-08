@@ -16,12 +16,14 @@ class Model {
     }
     public function where($p1,$p2,$p3='')
     {
-        $this->_db->where($p1,$p2,$p3);
+        if($p3) $this->_db->where($p1,$p2,$p3);
+        else $this->_db->where($p1,$p2);
         return $this;
     }
     public function orWhere($p1,$p2,$p3='')
     {
-        $this->_db->orWhere($p1,$p2,$p3);
+        if($p3) $this->_db->orWhere($p1,$p2,$p3);
+        else $this->_db->orWhere($p1,$p2);
         return $this;
     }
     public function having ($p1,$p2)
@@ -31,7 +33,8 @@ class Model {
     }
     public function orderBy($p1,$p2,$p3='')
     {
-        $this->_db->orderBy($p1,$p2,$p3);
+        if($p3) $this->_db->orderBy($p1,$p2,$p3);
+        else $this->_db->orderBy($p1,$p2);
         return $this;
     }
     public function join($p1,$p2,$p3)
@@ -72,5 +75,11 @@ class Model {
 
         return $this->_db->update($this->table,$data);
     }
-
+    public function pagination($currentPpage,$limit=3){
+        $this->_db->pageLimit = $limit;
+        return  [
+            $this->_db->arraybuilder()->paginate($this->table, $currentPpage),
+            $this->_db->totalPages
+        ];
+    }
 }

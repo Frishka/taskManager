@@ -24,7 +24,7 @@ class Kernel {
     private static function findController ($uri)
     {
         foreach(Route::$_urls as $url)
-            if($url->url === $uri){
+            if(rtrim($url->url,'/') === rtrim($uri,'/')){
                 self::$controllerName = $url->controller->name;
                 self::$controllerAction = $url->controller->action;
             }

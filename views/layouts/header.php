@@ -9,18 +9,30 @@
     <!-- Bootstrap core CSS -->
     <link href="/public/css/app.css" rel="stylesheet">
     <link href="/public/css/bootstrap.css" rel="stylesheet">
+    <script src="public/js/jquery.min.js"></script>
+<!--    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </head>
 <body class="bg-light">
 <div class="container-fluid">
-    <row>
+    <div class="row">
         <div class="col-md-12">
-            <ul class="list-inline float-right">
-                <li class="list-inline-item"><a href="/register">Register</a></li>
-                <li class="list-inline-item"><a href="/login">Login</a></li>
-            </ul>
+            <?if(isset($_SESSION['AUTH'])) echo '
+                <ul class="list-inline float-right">
+                    <li class="list-inline-item">'.$_SESSION['AUTH'].'</li>
+                    <li class="list-inline-item"><a href="/logout">Выйти</a></li>
+                </ul>';
+            else{?>
+                <ul class="list-inline float-right">
+                   <?php if($_SERVER['REQUEST_URI'] != '/login'){?>
+                    <li class="list-inline-item"><a href="/login">Вход</a></li>
+                    <?}if($_SERVER['REQUEST_URI'] != '/registration'){?>
+                        <li class="list-inline-item"><a href="/registration">Регистрация</a></li>
+                    <?}?>
+                </ul>
+            <?}?>
         </div>
-    </row>
+    </div>
 </div>
 <div class="container">
