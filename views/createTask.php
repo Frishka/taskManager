@@ -23,6 +23,12 @@
                 </div>
                 <button class="btn btn-block btn-success" type="submit">Добавить</button>
             </form>
+            <div class="row mt-5 text-left">
+                <div class="col">
+                    <a href="/">Вернуться</a>
+                </div>
+            </div>
+
         </div>
     </div>
 

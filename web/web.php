@@ -13,3 +13,4 @@ Route::get('/registration','AuthController','registration');
 Route::get('/admin','AdminController','index');
 Route::get('/admin/login','AdminController','login');
 Route::get('/admin/logout','AdminController','logout');
+Route::get('/admin/data','AdminController','data');

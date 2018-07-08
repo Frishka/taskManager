@@ -17,7 +17,7 @@ class AuthController extends Controller{
         $password = FormChars($_POST['password']);
         $user->insert([
             'name' => FormChars($_POST['name']),
-            'password' => GenPassword($login,$password),
+            'password' => md5($password),
             'login' => $login,
             'email' => FormChars($_POST['email']),
             'role' => 1,
@@ -32,18 +32,17 @@ class AuthController extends Controller{
     public function auth(){
         $login = FormChars($_POST['login']);
         $password = FormChars($_POST['password']);
-
         $user = new User('u');
         $result = $user->select()
             ->where('login',$login)
             ->where('password',md5($password))
             ->get();
+
         if(!empty($result)){
             $_SESSION['AUTH'] = $result[0];
+            return redirect('/');
         }
-
-
-        return redirect('/');
+        return redirect('/login');
     }
     public function logout(){
         unset($_SESSION['AUTH']);

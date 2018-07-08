@@ -6,7 +6,7 @@ use \Models\Task;
 
 class MainController extends Controller{
     public function index(){
-        $orderBy = $_GET['orderBy'] ?? 'name';
+        $orderBy = $_GET['orderBy'] ?? 't.id';
         $orderByDirection = ($_GET['d'] === 'desc')?'asc':'desc';
         $page = (int)$_GET['page'] ?? 1;
         if($page<=0) $page = 1;
@@ -17,6 +17,7 @@ class MainController extends Controller{
             ->pagination($page,3);
 
         $result[] = $page;
+
        return view("main",[
            'tasks'=>$result[0],
            'page'=>$page,

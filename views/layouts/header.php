@@ -20,7 +20,7 @@
         <div class="col-md-12">
             <?if(isset($_SESSION['AUTH'])) echo '
                 <ul class="list-inline float-right">
-                    <li class="list-inline-item">'.$_SESSION['AUTH'].'</li>
+                    <li class="list-inline-item">'.$_SESSION['AUTH']['name'].'</li>
                     <li class="list-inline-item"><a href="/logout">Выйти</a></li>
                 </ul>';
             else{?>
