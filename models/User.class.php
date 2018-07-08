@@ -3,13 +3,14 @@ namespace Models;
 
 use Model\Model;
 
-class Task extends Model{
+class User extends Model{
 
-    protected $table = "tasks";
+    protected $table = "users";
     //..
     public function __construct($alias='')
     {
         $this->table .= ' '.$alias;
         parent::__construct();
     }
+
 }

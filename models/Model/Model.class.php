@@ -71,6 +71,9 @@ class Model {
     public function insert($data){
         return $this->_db->insert($this->table,$data);
     }
+    public function insertMulti($data,$keys){
+        return $this->_db->insertMulti($this->table,$data,$keys);
+    }
     public function update($data){
 
         return $this->_db->update($this->table,$data);

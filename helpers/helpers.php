@@ -32,3 +32,9 @@ function session ($name=null){
 function redirect($to){
     return exit(header("Location: {$to}"));
 }
+function FormChars($p1) {
+    return nl2br(htmlspecialchars(trim($p1), ENT_QUOTES));
+}
+function GenPassword ($p1, $p2) {
+    return md5('text'.md5('199342'.$p1.'12384').md5('3421'.$p2.'2341'));
+}

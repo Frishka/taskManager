@@ -1,7 +1,8 @@
 <?php
 namespace Controllers;
 
-use Controllers\Controller\Controller;
+use Controller\Controller;
+use Models\User;
 
 class AuthController extends Controller{
     public function __construct()
@@ -11,6 +12,17 @@ class AuthController extends Controller{
         return view('auth::register');
     }
     public function register(){
+        $user = new User();
+        $login = FormChars($_POST['login']);
+        $password = FormChars($_POST['password']);
+        $user->insert([
+            'name' => FormChars($_POST['name']),
+            'password' => GenPassword($login,$password),
+            'login' => $login,
+            'email' => FormChars($_POST['email']),
+            'role' => 1,
+            'regdate' => date('Y-m-d')
+        ]);
         return redirect('/login');
     }
     public function login(){
@@ -18,7 +30,19 @@ class AuthController extends Controller{
         else return redirect('/');
     }
     public function auth(){
-        $_SESSION['AUTH'] = "Игорь";
+        $login = FormChars($_POST['login']);
+        $password = FormChars($_POST['password']);
+
+        $user = new User('u');
+        $result = $user->select()
+            ->where('login',$login)
+            ->where('password',md5($password))
+            ->get();
+        if(!empty($result)){
+            $_SESSION['AUTH'] = $result[0];
+        }
+
+
         return redirect('/');
     }
     public function logout(){

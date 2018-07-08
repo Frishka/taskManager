@@ -1,59 +1,35 @@
 <? require_once __DIR__.'/../layouts/header.php'?>
 <div class="container">
     <center>
-    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info">
+    <div id="" style="margin-top:50px" class=" col-md-6 d-block mx-auto">
+        <div class="panel panel-info text-left">
             <div class="panel-heading">
-                <div class="panel-title">Регистрация</div>
+                <div class="panel-title text-center">Регистрация</div>
             </div>
             <div class="panel-body" >
                 <form id="signupform" action="/register" method="post" class="form-horizontal" role="form">
-
                     <div id="signupalert" style="display:none" class="alert alert-danger">
                         <p>Error:</p>
                         <span></span>
                     </div>
-
-
-
                     <div class="form-group">
-                        <label for="email" class="col-md-3 control-label">Email</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="email" placeholder="Email Address">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="firstname" class="col-md-3 control-label">First Name</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="firstname" placeholder="First Name">
-                        </div>
+                        <label for="email" class="col-md-3 control-label">Почта</label>
+                        <input type="text" class="form-control" name="email" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <label for="lastname" class="col-md-3 control-label">Last Name</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-                        </div>
+                        <label for="firstname" class="col-md-3 control-label">Логин</label>
+                        <input type="text" class="form-control" name="login" placeholder="Login">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstname" class="col-md-3 control-label">Имя</label>
+                        <input type="text" class="form-control" name="name" placeholder="Name">
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-md-3 control-label">Password</label>
-                        <div class="col-md-9">
-                            <input type="password" class="form-control" name="passwd" placeholder="Password">
-                        </div>
+                        <input type="password" class="form-control" name="passwd" placeholder="Password">
                     </div>
-
                     <div class="form-group">
-                        <label for="icode" class="col-md-3 control-label">Invitation Code</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="icode" placeholder="">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <!-- Button -->
-                        <div class="col-md-offset-3 col-md-9">
-                            <button type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Зарегистрироваться</button>
-                        </div>
+                        <button type="submit" class="btn btn-info btn-block"><i class="icon-hand-right"></i> &nbsp Зарегистрироваться</button>
                     </div>
                 </form>
             </div>

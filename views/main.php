@@ -32,6 +32,8 @@
 
     <?php
         foreach($tasks as $task){
+            if(is_null($task['name'])) $task['name'] = 'Аноним';
+            if(is_null($task['email'])) $task['email'] = '-';
             echo "<tr><td>{$task['text']}</td><td>{$task['name']}</td><td>{$task['email']}</td><td>{$task['status']}</td></tr>";
         }
     ?>

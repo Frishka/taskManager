@@ -2,6 +2,7 @@
 
 Route::get('/','MainController','index');
 Route::get('/create','MainController','createTask');
+Route::post('/create/data','CRUDController','create');
 
 Route::get('/login','AuthController','login');
 Route::post('/auth','AuthController','auth');

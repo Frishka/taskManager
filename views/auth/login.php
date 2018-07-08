@@ -14,7 +14,7 @@
 
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
+                            <input id="login-username" type="text" class="form-control" name="login"  placeholder="login">
                         </div>
 
                         <div style="margin-bottom: 25px" class="input-group">
@@ -25,7 +25,7 @@
                             <!-- Button -->
 
                             <div class="col-sm-12 controls">
-                                <button type="submit" class="btn btn-success">Войти</button>
+                                <button type="submit" class="btn btn-block btn-success">Войти</button>
                             </div>
                         </div>
                     </form>

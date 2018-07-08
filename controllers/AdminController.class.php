@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
 
-use Controllers\Controller\Controller;
+use Controller\Controller;
 
 class AdminController extends Controller{
 
