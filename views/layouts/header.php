@@ -9,7 +9,8 @@
     <!-- Bootstrap core CSS -->
     <link href="/public/css/app.css" rel="stylesheet">
     <link href="/public/css/bootstrap.css" rel="stylesheet">
-    <script src="public/js/jquery.min.js"></script>
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet">
+    <script src="/public/js/jquery.min.js"></script>
 <!--    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 

@@ -24,17 +24,19 @@
 
     <table class="table table-hover">
         <tr>
-            <th><a href="/?page=<?=$page?>&orderBy=text&d=<?=$desc?>">Задача</a></th>
+            <th colspan="2"><a href="/?page=<?=$page?>&orderBy=title&d=<?=$desc?>">Заголовок</a></th>
+            <th><a href="/?page=<?=$page?>&orderBy=text&d=<?=$desc?>">Текст</a></th>
             <th><a href="/?page=<?=$page?>&orderBy=name&d=<?=$desc?>">Имя</a></th>
             <th><a href="/?page=<?=$page?>&orderBy=email&d=<?=$desc?>">Email</a></th>
             <th><a href="/?page=<?=$page?>&orderBy=status&d=<?=$desc?>">Статус</a></th>
         </tr>
 
     <?php
+
         foreach($tasks as $task){
             if(is_null($task['name'])) $task['name'] = 'Аноним';
             if(is_null($task['email'])) $task['email'] = '-';
-            echo "<tr><td>{$task['text']}</td><td>{$task['name']}</td><td>{$task['email']}</td><td>{$task['status']}</td></tr>";
+            echo "<tr><td><img src='/public/images/".((strlen($task['img'])>0)?'uploads/'.$task['img']: 'default.png')."' style='width:50px'></td><td>{$task['title']}</td><td>{$task['text']}</td><td>{$task['name']}</td><td>{$task['email']}</td><td>".(($task['status'])?'<i class="fa fa-check-circle" aria-hidden="true"></i>':'<i class="fa fa-times-circle" aria-hidden="true"></i>')."</td></tr>";
         }
     ?>
     </table>

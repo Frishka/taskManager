@@ -81,7 +81,7 @@ class Model {
     public function pagination($currentPpage,$limit=3){
         $this->_db->pageLimit = $limit;
         return  [
-            $this->_db->arraybuilder()->paginate($this->table, $currentPpage),
+            $this->_db->arraybuilder()->paginate($this->table, $currentPpage,$this->select),
             $this->_db->totalPages
         ];
     }

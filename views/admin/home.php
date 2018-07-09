@@ -61,7 +61,7 @@
             if(is_null($task['name'])) $task['name'] = 'Аноним';
             if(is_null($task['email'])) $task['email'] = '-';
             echo "<tr>
-                    <td><textarea class='form-control text'>'{$task['text']}'</textarea></td>
+                    <td><div class='load'></div><textarea class='form-control text' data-id ='{$task['id']}'>'{$task['text']}'</textarea></td>
                     <td class='name'>{$task['name']}</td>
                     <td>{$task['email']}</td>
                     <td><input type='checkbox' class='status' data-id ='{$task['id']}' data-check ='{$task['status']}'></td>
@@ -81,6 +81,17 @@
                           console.log(data);
                       });
             });
+        $('.text').change(function(){
+           var $this = $(this);
+            $.ajax({
+                url:'/admin/data',
+                type:'post',
+                data:{text:$(this).val(),id:$(this).data('id')},
+                beforeSend: function(){$this.siblings('.load').show()},
+                complete:function () {$this.siblings('.load').hide()},
+                success:function(data){console.log(data)}
+            });
+        });
     });
 </script>
 </body>

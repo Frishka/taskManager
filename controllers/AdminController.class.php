@@ -15,10 +15,10 @@ class AdminController extends Controller{
             if($page<=0) $page = 1;
 
             $task = new Task('t');
-            $result = $task->select('t.id')->join("users u", "t.user_id=u.id", "LEFT")
+            $result = $task->select(['t.*','u.name','u.email'])
+                ->join("users u", "t.user_id=u.id", "LEFT")
                 ->orderBy(''.$orderBy,$orderByDirection)
                 ->pagination($page,3);
-
             $result[] = $page;
 
             return view("admin::home",[
@@ -32,22 +32,12 @@ class AdminController extends Controller{
         else return view("admin::login");
     }
     public function login(){
-        if($_POST['login'] == 'admin' and $_POST['password'] == '123'){
+        if($_POST['login'] == 'admin' and $_POST['password'] == '123')
             $_SESSION['ADMIN'] = $_POST['login'];
-            return view('admin::home');
-        }
         return redirect('/admin');
     }
     public function logout(){
         unset($_SESSION['ADMIN']);
         return redirect('/admin');
-    }
-    public function data(){
-        if(isset($_POST['status'])){
-            $task = new Task();
-            $task->where('id',$_POST['id'])->update([
-                'status'=>$_POST['status']
-            ]);
-        }
     }
 }

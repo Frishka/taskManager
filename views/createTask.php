@@ -7,8 +7,8 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6 d-block mx-auto text-center">
-            <form action="/create/data" method="post">
+        <div class="col-md-6 text-center">
+            <form action="/create/data" enctype="multipart/form-data" method="post">
                 <div class="form-group row">
                     <label for="example-title-input" class="col-2 col-form-label">Title</label>
                     <div class="col-10">
@@ -21,6 +21,13 @@
                         <textarea class="form-control" name="text" placeholder="Текст задачи"></textarea>
                     </div>
                 </div>
+                <div class="form-group text-left">
+                    <input type="file" name="img" accept=".jpg, .gif, .png" class="form-control-file file" id="exampleInputFile">
+                    <small id="fileHelp" class="form-text text-muted">
+                        Добавить изображение, формат JPG/GIF/PNG, не более 320х240 пикселей
+                    </small>
+                </div>
+                <button class="btn btn-block btn-info preview_b" >Предварительный просмотр</button>
                 <button class="btn btn-block btn-success" type="submit">Добавить</button>
             </form>
             <div class="row mt-5 text-left">
@@ -28,11 +35,16 @@
                     <a href="/">Вернуться</a>
                 </div>
             </div>
-
+        </div>
+        <div class="col-md-6">
+            <div class="preview">
+                Предварительный просмотр
+            </div>
         </div>
     </div>
+<script src="/public/js/upload_image.js"></script>
+<script>
+    $('.preview_b').click(updateImageDisplay);
+</script>
 
-
-
-
-    <? require_once __DIR__.'/layouts/footer.php'?>
+<? require_once __DIR__.'/layouts/footer.php'?>
