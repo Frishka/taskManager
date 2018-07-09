@@ -8,6 +8,7 @@ class CRUDController extends Controller{
     public function create (){
         $title = addslashes($_POST['title']);
         $text = addslashes($_POST['text']);
+        $email = addslashes($_POST['email']);
 
         $allowed_filetypes = array('.jpg','.gif','.png'); // Допустимые типы файлов
         $max_filesize = 524288; // Максимальный размер файла в байтах (в данном случае он равен 0.5 Мб).
@@ -15,23 +16,25 @@ class CRUDController extends Controller{
         $filename = $_FILES['img']['name']; // В переменную $filename заносим имя файла (включая расширение).
 
         $ext = substr($filename, strpos($filename,'.'), strlen($filename)-1); // В переменную $ext заносим расширение загруженного файла.
-        if(!in_array($ext,$allowed_filetypes)) // Сверяем полученное расширение со списком допутимых расширений.
-            die('Данный тип файла не поддерживается.');
+        if($_FILES['img']['name']){
+            if(!in_array($ext,$allowed_filetypes)) // Сверяем полученное расширение со списком допутимых расширений.
+                die('Данный тип файла не поддерживается.');
 
-        if(filesize($_FILES['img']['tmp_name']) > $max_filesize) // Проверим размер загруженного файла.
-            die('Фаил слишком большой.');
+            if(filesize($_FILES['img']['tmp_name']) > $max_filesize) // Проверим размер загруженного файла.
+                die('Фаил слишком большой.');
 
-        if(!is_writable($upload_path)) // Проверяем, доступна ли на запись папка.
-            die('Невозможно загрузить фаил в папку. Установите права доступа - 777.');
-
+            if(!is_writable($upload_path)) // Проверяем, доступна ли на запись папка.
+                die('Невозможно загрузить фаил в папку. Установите права доступа - 777.');
+        }
         // Загружаем фаил в указанную папку.
-        if(move_uploaded_file($_FILES['img']['tmp_name'],$upload_path . $filename))
+        if(!$_FILES['img']['name'] or move_uploaded_file($_FILES['img']['tmp_name'],$upload_path . $filename))
         {
             $task = new Task();
             $user = (isset($_SESSION['AUTH']))?$_SESSION['AUTH']['id']:0;
             $data = [
                 'user_id'=>$user,
                 'text'=>$text,
+                'email'=>$email,
                 'title'=>$title,
                 'img' =>$filename
             ];

@@ -32,7 +32,8 @@
         </tr>
 
     <?php
-
+if(empty($tasks)) echo "<tr><td colspan='6'>Задачи не найдены</td></tr>";
+else
         foreach($tasks as $task){
             if(is_null($task['name'])) $task['name'] = 'Аноним';
             if(is_null($task['email'])) $task['email'] = '-';

@@ -10,7 +10,7 @@
         <div class="col-md-6 text-center">
             <form action="/create/data" enctype="multipart/form-data" method="post">
                 <div class="form-group row">
-                    <label for="example-title-input" class="col-2 col-form-label">Title</label>
+                    <label for="example-title-input" class="col-2 col-form-label">Заголовок</label>
                     <div class="col-10">
                         <input class="form-control" type="text" name="title" placeholder="Заголовок" id="example-search-title">
                     </div>
@@ -19,6 +19,12 @@
                     <label for="example-text-input" class="col-2 col-form-label">Текст задачи</label>
                     <div class="col-10">
                         <textarea class="form-control" name="text" placeholder="Текст задачи"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">E-mail</label>
+                    <div class="col-10">
+                        <input class="form-control" type="email" name="email" value="<?=(isset($_SESSION['AUTH']))?$_SESSION['AUTH']['email']:''?>" placeholder="Почта" id="example-search-title">
                     </div>
                 </div>
                 <div class="form-group text-left">

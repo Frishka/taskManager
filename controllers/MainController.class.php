@@ -12,7 +12,7 @@ class MainController extends Controller{
         if($page<=0) $page = 1;
 
         $task = new Task('t');
-        $result = $task->select()
+        $result = $task->select(['t.*','u.name'])
             ->join("users u", "t.user_id=u.id", "LEFT")
             ->orderBy(''.$orderBy,$orderByDirection)
             ->pagination($page,3);
