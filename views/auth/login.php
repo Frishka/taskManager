@@ -1,5 +1,4 @@
 <? require_once __DIR__.'/../layouts/header.php'?>
-<div class="container">
     <center>
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-4">
             <div class="panel panel-info" >
@@ -33,4 +32,4 @@
             </div>
         </div>
     </center>
-</div>
+<? require_once __DIR__.'/../layouts/footer.php'?>

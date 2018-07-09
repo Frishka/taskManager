@@ -50,5 +50,6 @@
         </div>
     </center>
 </div>
+<? require_once __DIR__.'/../layouts/footer.php'?>s
 </body>
 </html>
